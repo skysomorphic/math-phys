@@ -1,0 +1,62 @@
+\ProvidesPackage{preamble}
+
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{lmodern}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=1in,bottom=1in,left=1in,right=1in,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath,amsthm,amssymb,color,latexsym, mathtools}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{subfig}
+\usepackage{mathtools}
+\usepackage{booktabs}
+\usepackage[all]{xy}
+
+\usepackage[shortlabels]{enumitem}
+\usepackage[table]{xcolor}
+\usepackage{geometry}
+\usepackage{url}
+\geometry{letterpaper}
+\usepackage{parskip}
+
+\setlength{\parindent}{0pt}
+
+\newtheorem{problem}{Problem}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem*{proposition}{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{postulate}[theorem]{Postulate}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{ex}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{note}{Note}
+
+\newenvironment{solution}[1][Solution]{\textbf{\textit{#1. }}}{$\blacksquare$}
+
+% shortcuts
+\newcommand{\ndiv}{\not\hspace{2.5pt}\mid}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+
+\newcommand{\sS}{\mathcal{S}}
+\newcommand{\sT}{\mathcal{T}}
+\newcommand{\ps}{\mathcal{P}}
