@@ -1,4 +1,4 @@
-\ProvidesPackage{preamble}
+\ProvidesPackage{../../../preamble} % wack fix lmao
 
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{lmodern}
@@ -15,6 +15,7 @@
 \usepackage{amsmath,amsthm,amssymb,color,latexsym}
 \usepackage{mathtools}
 \usepackage{braket}
+\usepackage{wasysym} % for \lightning for contradiction
 \usepackage{graphicx}
 \usepackage{esint} % for the wacky integrals
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
@@ -27,30 +28,53 @@
 \usepackage[table]{xcolor}
 \usepackage{geometry}
 \usepackage{url}
-\geometry{letterpaper}
+
 \usepackage{parskip}
 
-\setlength{\parindent}{0pt}
+% Source - https://tex.stackexchange.com/a/451089
+% Posted by Frank Mittelbach, modified by community. See post 'Timeline' for change history
+% Retrieved 2026-09-23, License - CC BY-SA 4.0
+% FIXES AMSTHM SPACING
 
-\newtheorem{problem}{Problem}
+\usepackage{etoolbox}
 
-\newtheorem{theorem}{Theorem}
-\newtheorem*{proposition}{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{conjecture}[theorem]{Conjecture}
-\newtheorem{postulate}[theorem]{Postulate}
+\makeatletter
+\patchcmd\deferred@thm@head
+{\addvspace{-\parskip}}
+{}
+{}{\typeout{\string\deferred@thm@head patch failed!}}
+\makeatletter
 
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{ex}[theorem]{Example}
+% \setlength{\parindent}{0pt}
 
-\theoremstyle{remark}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\newenvironment{sln}[1][Solution]{
+\begin{proof}[\textbf{\textit{#1}}]}{
+\end{proof}}
+
+\newenvironment{pf}{
+\begin{proof}}{
+\end{proof}}
+
+\theoremstyle{plain} % bold title, italic bodies
+\newtheorem{thm}{Theorem}
+\newtheorem{lm}[thm]{Lemma}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem*{prop}{Proposition}
+
+\newtheorem{cor}{Corollary}[thm] % resets counter per theorem
+\newtheorem{claim}{Claim}[thm]
+
+\theoremstyle{definition} % bold title, roman body
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{ex}[thm]{Example}
+
+\theoremstyle{remark} % italic title, roman body
 \newtheorem*{remark}{Remark}
 \newtheorem*{notation}{Notation}
 \newtheorem*{note}{Note}
-
-\newenvironment{solution}[1][Solution]{\textbf{\textit{#1. }}}{$\blacksquare$}
+\newtheorem*{exercise}{Exercise}
 
 % shortcuts
 \newcommand{\ndiv}{\not\hspace{2.5pt}\mid}
@@ -60,6 +84,6 @@
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}}
 
-\newcommand{\sS}{\mathcal{S}}
-\newcommand{\sT}{\mathcal{T}}
+\newcommand{\FF}{\mathbb{F}}
+
 \newcommand{\ps}{\mathcal{P}}
