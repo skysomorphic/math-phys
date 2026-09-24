@@ -1,0 +1,384 @@
+\documentclass[12pt]{article}
+\input{../../preamble.sty}
+
+\newcommand{\lecdate}[1]{ %originally -0.15in
+    \vspace{0in}
+    \begin{flushright}
+        #1
+    \end{flushright}
+    \vspace{0in}
+}
+
+\counterwithin{thm}{subsection}
+\counterwithin{equation}{subsection}
+
+\renewcommand{\thesection}{\Roman{section}}
+\counterwithout{subsection}{section}
+
+\begin{document}
+
+\tableofcontents
+
+\section*{Preface}
+\lecdate{Lec 1 09-08 Tuesday}
+\textbf{NO LATES WILL BE ACCEPTED}
+
+``work hard on your assignments''
+
+``the test os easier than the HW because you only get an hour''
+
+``abstraction gap''
+
+158/240 throw it into the deep end
+
+``very little computation in this class''
+
+\textit{write proofs in prose more than symbols}
+
+~4-5 hours outside of class
+
+lec (tue, thu) $\to$ pset drops (fri) $\to$ tut (following thu) $\to$ pset due (sun 8pm)
+
+\section{Basics}
+\subsection{Sets}
+\lecdate{Lec 1 09-08 Tuesday}
+
+\begin{defn}
+    A set is a collection of elements. An element $x$ is in the set $S$, we write $x \in S$. If the element $x$ is not in the set $S$, we write $x \not\in S$.
+\end{defn}
+
+\begin{ex}
+    Let $P = \{x : x \text{ is a prime number}\}$.
+\end{ex}
+\begin{defn}
+    Two sets $S$ and $T$ are equal if they contain the same elements. In that case we write $S = T$.
+\end{defn}
+
+A set can be defined either by listing the elements in the set, or by giving a characterization of these elements.
+\begin{gather*}
+    A = \set{x : x \text{ is a positive integer dividing }6} \\
+    A = \set{1, 2, 3, 6} = \set{2, 6, 1, 3}
+\end{gather*}
+
+\begin{defn}
+    If $S$ and $T$ are sets such that all elements of $S$ are contained in $T$, we say that $S$ is a subset of $T$ and write $S \subseteq T$. If $S$ is a subset of $T$ and is not equal to $T$, we say that $S$ is a proper subset of $T$ and write $S \subsetneq T$.
+\end{defn}
+
+\begin{defn}
+    The empty set is the set with no elements, denoted $\varnothing$.
+\end{defn}
+
+\begin{defn}
+    If $S$ and $T$ are sets, we have two operations
+    \begin{itemize}
+        \item $S \cup T = \set{x : x \in S \text{ or } T \text{ or both}}$ is called the union of $S$ and $T$.
+        \item $S \cap T = \set{x : x \in S \text{ and } T }$ is called the intersection of $S$ and $T$.
+    \end{itemize}
+\end{defn}
+\begin{ex}
+    Let $\mathbb{N} = {x \in \mathbb{Z} : x > 0} = \set{1, 2, 3, 4, \dots}$ be the set of natural numbers, and let $-\mathbb{N} = \set{x \in \mathbb{Z} : x < 0}$ be the set of negative integers. Then
+    - $\mathbb{N} \cup -\mathbb{N} = {x \in \mathbb{Z} : \not  x= 0}$.
+    - $\mathbb{N}\cap \mathbb{N} = \varnothing$
+\end{ex}
+
+\begin{defn}
+    Let $S_{1}, \dots, S_{k}$ sets. Then, \[
+        {}\bigcup^k_{i=1}S_{i} = \{ x: x \in S_{i} \text{ for at least one } 1 \leq i \leq k \}
+    \]
+    is the union of sets $S_{i}$. Likewise, \[
+        {}\bigcap^k_{i=1}S_{i} = \{ x: x \in S_{i}\ \forall\ 1 \leq i \leq k \}
+    \]
+    is the intersection of sets $S_{i}$.
+\end{defn}
+
+\begin{defn}
+    Let $S$ and $T$ be sets, The \textbf{Cartesian product} is defined by $S \times T = \{ (s,t): s \in S,\, t \in T\}$.
+\end{defn}
+
+\subsection{Functions}
+
+\begin{defn}
+    Let $S$ and $T$ be non-empty sets. A function $f$ from $S$ to $T$, denoted $f: S \to T$, is a rule assigning to each $x \in S$ an unique element $f(x) \in T$.
+\end{defn}
+In that case, we say that
+\begin{itemize}
+    \item $f(x)$ is the \textbf{image} of $x$ under $f$.
+    \item $x$ is the \textbf{preimage} of $f (x)$ under $f$.
+    \item $S$ is the \textbf{domain} of $f$.
+    \item $T$ is the \textbf{codomain} of $f$.
+    \item the \textbf{range} of f is the set ${f (x) : x \in S}$.
+    \item if $U \subseteq S$, then the image of $U$ is $f(U) = \{ f(x):x \in S \}$.
+    \item if $V \subseteq T$, then the preimage of $V$ is $f^{-1}(V) = \{ x: f(x) \in V \}$.
+\end{itemize}
+
+\begin{defn}
+    Two functions $f, g : S \to T$ are equal if $f (x) = g(x), \forall x \in S$.
+\end{defn}
+
+\begin{defn}
+    If every element in the range of $f$ has a unique preimage, we say $f$ is \textbf{injective}, or an \textbf{injection} (one-to-one).
+\end{defn}
+
+\begin{defn}
+    If every element in the codomain is in the range, we say $f$ is \textbf{surjective}, or a \textbf{surjection} (onto).
+\end{defn}
+
+\begin{defn}
+    If f is both injective and surjective, we say $f$ is \textbf{bijective}, or a \textbf{bijection}.
+\end{defn}
+\begin{ex}
+    Let $f: \mathbb{Z} \to \mathbb{N}$ be defined by $f(x) = |x| + 1$. Then $f$ is surjective but not injective.
+\end{ex}
+
+\begin{defn}
+    If $f: S \to T$ and $U \subseteq S$, then the restriction of $f$ to $U$, denoted $f\rvert_{U}$, is defined by $f\rvert_{U}(x) = f (x)$ for all $x \in U$.
+\end{defn}
+
+\begin{defn}
+    If $f: S \to T$ and $g : T \to U$ are functions, then the function which sends $x \in S$ to $g(f (x))$ is the composite $g \circ f : S \to U$, given $g \circ f (x) = g(f (x))$. Note even if $f, g : S \to S$, we don't necessarily have $f \circ g = g \circ f$.
+\end{defn}
+
+\begin{defn}
+    A function $f : S \to T$ is \textbf{invertible} if there exists a function $g : T \to S$ such that $g \circ f (x) = x, \forall x \in S$, and $f \circ g(y) = y, \forall y \in T$. If it exists, such a $g$ is the \textbf{inverse} of $f$ and is denoted $f^{-1}$.
+\end{defn}
+
+\subsection{Fields}
+\lecdate{Lec 2 09-10 Thursday}
+
+\begin{defn}
+    A \textbf{field} $F$ is a set with 2 operations, \textbf{note that these operations are closed}:
+    \begin{itemize}
+        \item ${}+: F\times F \to F{}$ (\textbf{sum})
+        \item ${}\cdot: F\times F \to F{}$ (\textbf{product})
+    \end{itemize}
+    that obeys the following axioms:
+    \begin{itemize}
+        \item[(F1)] ${}a+b=b+a{}$ and ${}a \cdot b = b \cdot a{}$ (\textbf{commutativity})
+        \item[(F2)] ${}(a+b)+c=a+(b+c){}$ and ${}(a \cdot b) \cdot c = a \cdot (b \cdot c){}$ (\textbf{associativity})
+        \item[(F3)] ${}\exists{}$ distinct elements ${}0,1 \in F{}$ s.t. ${}0 + a =a{}$ and ${}1 \cdot a = a{}$ for all ${}a\in F{}$. (\textbf{existence of identities})
+        \item[(F4)] ${}\forall a \in F{}$ and ${}\forall b \in F, b \neq 0{}$, there exists ${}c,d \in F{}$ s.t. ${}a+c=0{}$ and ${}b \cdot d = 1{}$. (\textbf{existence of inverses})
+        \item[(F5)] ${}\forall a,b,c \in F{}$, then ${}a \cdot (b + c) = a \cdot b + a\cdot c{}$. (\textbf{distributivity of ${}\cdot{}$ over ${}+{}$})
+    \end{itemize}
+\end{defn}
+\begin{ex}
+    Some fields:
+    \begin{itemize}
+        \item $(\RR, +, \cdot)$
+        \item $(\QQ, +, \cdot)$
+        \item $(\ZZ_{2} = \{ 0,1 \}, +, \cdot)$
+    \end{itemize}
+\end{ex}
+
+[!NOTE] memorize these axioms
+
+[!NOTE] someone said ${}\mathbb{Z}/p{}$ lmao
+
+[!NOTE] Can you redefine ${}+{}$ and ${}\cdot{}$ on ${}\mathbb{Z}{}$ to make it a field? Yes!
+
+\begin{thm}[Cancellation Result]
+    Let ${}F{}$ be a field and ${}a,b,c\in F{}$. Then:
+    - if ${}a+c = b+c{}$, then ${}a=b{}$
+    - if ${}a \cdot c = b \cdot c{}$, and ${}c \neq 0{}$, then ${}a=b{}$
+\end{thm}
+\begin{pf}
+    Let ${}d \in F{}$ s.t. ${}c \cdot t = 1{}$.
+    \begin{align}
+        (a \cdot c) \cdot d &= (b \cdot c) \cdot d \\
+        a \cdot (c \cdot d) &= b \cdot (c \cdot d) \\
+        a \cdot 1  &= b \cdot 1 \\
+        a & = b
+    \end{align}
+    A similar proof exists for the first statement.
+\end{pf}
+\begin{cor}
+    The elements ${}0,1 \in F{}$ are unique. The inverses ${}c,d \in F{}$ are also unique.
+\end{cor}
+
+[!NOTE] something about ring idempotent
+
+\subsection{The complex numbers}
+\begin{defn}
+    Let the complex numbers ${}\mathbb{C} = \{  a+ bi: a,b \in \mathbb{R} \}{}$, equipped with the following operations:
+    \begin{itemize}
+        \item ${}+_{\mathbb{C}}:\mathbb{C}\to \mathbb{C}{}$ given by ${}(a+bi)+_{\mathbb{C}}(c+di)=(a+c)+(b+d)i{}$
+        \item ${}\cdot_{\mathbb{C}}:\mathbb{C}\to \mathbb{C}{}$ given by ${}(a+bi)\cdot_{\mathbb{C}}(c+di)=(ac - bd)+(ad + bc)i{}$, with ${}i^2 = -1{}$
+            Elements of ${}\mathbb{C}{}$ are called the \textbf{complex numbers}, elements of the form ${}0 + bi{}$ are called the \textbf{imaginary numbers}.
+    \end{itemize}
+\end{defn}
+\begin{ex}
+    ${}\mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}{}$, naturally since ${}\mathbb{R}{}$ is just all the elements of the form ${}a + bi{}$.
+\end{ex}
+
+\begin{defn}
+    Any complex number ${}z = a+bi{}$:
+    \begin{itemize}
+        \item has a \textbf{modulus} (absolute value) ${}\lvert a+bi \rvert = \sqrt{a^{2}+b^{2} }{}$.
+        \item has a \textbf{conjugate} ${}\bar{z} = a -bi{}$.
+    \end{itemize}
+\end{defn}
+
+\begin{thm}
+    ${}\mathbb{C}{}$ is a field.
+\end{thm}
+\begin{pf}
+    The proof is left as an exercise to the reader.
+\end{pf}
+
+\subsection{Equivalence relations}
+\lecdate{Lec 3 09-15 Tuesday}
+
+[!quote] ``I as an algebraist think they are the most important concept in algebra.''
+
+\begin{defn}
+    Let ${}S{}$ be a set. A relation ${}R{}$ is a subset ${}R \subseteq S \times S{}$. We say that a pair ${}(x,y)\in S{}$ satisfies ${}R{}$ if ${}(x,y) \in R{}$. We denote ${}(x,y) \in R{}$ by ${}x\sim y{}$.
+\end{defn}
+
+\begin{defn}
+    A relation ${}\sim{}$ on a set ${}S{}$ is a equivalence relation if it satisfies the following properties ${}\forall s,t,u \in S{}$:
+    \begin{itemize}
+        \item ${}s \sim s{}$ (**reflexivity**)
+        \item ${}s \sim t \implies t \sim s{}$ (**symmetry**)
+        \item ${}s\sim t{}$ and ${}t \sim u \implies s\sim u{}$ (**transitivity**)
+    \end{itemize}
+\end{defn}
+\begin{exercise} Consider $w \in W$, the set of all english words. What equivalence classes exist on $W$?
+\end{exercise}
+\begin{ex} Some provided by people:
+    \begin{itemize}
+        \item ${}w_{1} \sim w_{2}{}$, if they start with the same letter
+        \item ${}w_{1} \sim w_{2}{}$, if they start with the same number of characters
+        \item ${}w_{1} \sim w_{2}{}$, if they are the same word
+            - **for any set you get for free a equivalence relation (equality)!**
+            - and also a trivial equivalence relation ${}s \sim_{tr} t, \forall s,t\in S{}$
+    \end{itemize}
+\end{ex}
+
+\begin{defn}
+    If ${}(S, \sim){}$ is a set equipped with a equivalence relation, and ${}t\in S{}$. Let **equivalence class** ${}C_{t} = \{ s\in S: s \sim t \}{}$.
+\end{defn}
+
+\begin{thm}
+    For ${}(S, \sim){}$, there is a subset ${}T \subseteq S{}$ that satisfies the following:
+    \begin{itemize}
+        \item ${}\bigcup_{t\in T}{C_{t}} = S {}$
+        \item If ${}t,t' \in T{}$ and ${}t\neq t'{}$, then ${}C_{t}\cap C_{t'} = \varnothing{}$.
+    \end{itemize}
+    ${}T{}$ is a **set of representative** of ${}S{}$ for equivalence relation ${}\sim{}$. Note that this implies ${}C_{t}{}$ partitions ${}S{}$, since they are all pairwise disjoint.
+\end{thm}
+
+\subsection{Modular arithmetic}
+\lecdate{Lec 3 09-15 Tuesday}
+
+**(1)** *Def.* Let ${}m\in \mathbb{N}{}$, and ${}a,b \in \mathbb{Z}{}$. We say that ${}a{}$ is congruent to ${} b{}$ mod ${}m{}$ denoted,
+$$
+a \equiv b \mod m
+$$
+or,
+$$
+a \equiv b \quad (m)
+$$
+if ${}m | (a-b){}$.
+*Ex.*
+- ${}11 \equiv 18 \mod 7{}$
+- ${}0 \equiv 7 \mod 7{}$
+*Exercise.* What $m$ makes ${}3 \equiv 45 \mod m{}$ true?
+- ${}m = 1, 2,3,6,7,14,21,42{}$
+
+**(2)** *Lemma.* Let ${}m\in \mathbb{N}{}$, and ${}a,b \in \mathbb{Z}{}$. Then, ${}a \equiv b \mod m{}$ iff there exists ${}k \in \mathbb{Z}{}$ s.t. ${}a=b+km{}$.
+*Proof.* **FILL IN FROM NOTES, pretty intuitive**
+
+**(3)** *Thm.* (**Division with remainder**) Let ${}m \in \mathbb{N}{}$. For each ${} a \in \mathbb{Z}{}$, there exists a unique ${}r \in \{ 0,1,\dots,m-1 \}{}$ such that ${}a \equiv r\quad (m){}$.
+*Proof.* We will show that there exist unique integers ${}k{}$ and ${}r{}$ such that ${}a= km +r{}$ by **Lemma 2**, this give ${}a \equiv r \quad (m){}$.
+*Existence.* Consider all the integer multiples of ${}m{}$:
+$$
+m \mathbb{Z} = \{ 0,\pm m,\pm 2m,\pm 3m,\dots \}.
+$$
+These integers occupy the entire real line by the Archimedean property of the real numbers.
+![[09-15 Equivalence relations and modular arithmetic-20260915201512028.webp]]
+The integer ${}a{}$ lies somewhere on the real line, in one of these intervals. Thus, it satisfies
+$$
+km \leq a < (k+1)m
+$$
+for some value ${}k{}$. Subtract ${}km{}$ to obtain
+$$
+0 \leq a-km < m.
+$$
+Let ${}r=a-km{}$. Then ${}r{}$ satisfies the desired condition.
+*Uniqueness.* Suppose that ${}a=r+km=r'+k'm{}$. Then
+$$
+r -r = (k'-k)m.
+$$
+It follows that ${}r-r'{}$ is a multiple of ${}m{}$. But since ${}0 \leq r,r' < m{}$, we have ${}-m < r-r' < m{}$. The only multiple of ${}m{}$ on this interval is ${}0{}.$ So ${}r-r' = 0 \implies r=r'{}$ and hence ${}k=k'{}$.
+
+As a consequence, we can deduce that
+$$
+\mathbb{Z} = \bigcup_{0}^{m-1} C_{i}
+$$
+We call ${}\{0, \dots, m-1 \}{}$ the **standard representatives** of their respective **congruence classes** ${}C_{i}{}$ for congruence mod ${}m{}$.
+
+**(4)** *Thm.* (**Addition and multiplication of congruence classes**) If ${}a \equiv b \quad (m){}$ and ${}c \equiv d \quad (m){}$, then
+$$
+a+c\equiv b+d \mod m, \qquad a \cdot c \equiv b \cdot d \mod m.
+$$
+*Proof.* see notes,
+
+**(5)** *Def.* The **integers modulo $m$ (or mod $m$)**, denoted ${}\mathbb{Z}/m\mathbb{Z}{}$, is the set of congruence classes mod ${}m{}$. By the previous theorem, ${}\mathbb{Z} / m\mathbb{Z}{}$ is equipped with addition and multiplication. In practice, we will denote the congruence classes in ${}\mathbb{Z} / m \mathbb{Z}{}$ to be
+$$
+\mathbb{Z} / m \mathbb{Z} = \{ \overline{0}, \overline{1}, \dots, \overline{m-1}\}.
+$$
+Let ${}m = 4{}$. Consider ${}\mathbb{Z} / 4 \mathbb{Z}{}$:
+$$
+\overline{0} \cdot \overline{2} = \overline{0} \quad
+\overline{1} \cdot \overline{2} = \overline{2} \quad
+\overline{2} \cdot \overline{2} = \overline{0} \quad
+\overline{3} \cdot \overline{2} = \overline{2} \quad
+$$
+${}\overline{2}{}$ does not have a multiplicative inverse!!!! So ${}\mathbb{Z} / 4 \mathbb{Z}{}$ is not a field. Note that however ${}\overline{3}{}$ does have a multiplicative inverse, it is only for (non-unity) divisors of $m$ that lack inverses.
+
+**(6)** *Thm.* ${}\mathbb{Z} / m \mathbb{Z}{}$ is a field if and only if ${}m{}$ prime number.
+Assume the field axioms except the existence of multiplicative inverses.
+Assume that if ${}m{}$ is not prime then there exists
+
+\subsection{Finite fields on $\ZZ / m \ZZ$}
+\lecdate{Lec 4 09-17 Thursday}
+
+Go to tutorial!!! HW1 is due sunday at 8pm. Mathematics SUpport Initiative, see Quercus, math help club.
+
+Recap. Recall that $\ZZ / m \ZZ = \{ \bar{0}, \dots, \overline{m-1} \}$is the set of equivalence classes mod $m$, equipped with the operations $+$ and $\cdot$, given by:
+\begin{enumerate}
+    \item Do the operation as usual
+    \item Then, take the remainder
+\end{enumerate}
+
+\begin{remark}
+    What is a prime number?
+\end{remark}
+
+\begin{defn}
+    Let $p \in \NN$, $p > 1$, then $p$ is prime if $\forall x,y \in \ZZ$,\[
+        p \nmid x \text{ and } p \nmid y \implies p \nmid xy
+    \]
+\end{defn}
+
+asfasf
+\begin{remark}
+    What is a prime number?
+\end{remark}
+
+Check this as an exercise! This is also called Euclid's lemma.
+
+\begin{thm}
+    Let $m \in \NN$. If $m$ is prime, then $\ZZ / m \ZZ$ is a field. blahblahblahblahblahblahblah blah blah blah blah
+\end{thm}
+\begin{remark}
+    What is a prime number?
+\end{remark}
+\begin{pf}
+    First, check the field axioms, with (F4) holding for addition.
+\end{pf}
+
+\section{Vector spaces}
+\subsection{Vector spaces and their properties}
+\lecdate{Lec 5 09-22 Tuesday}
+
+\end{document}

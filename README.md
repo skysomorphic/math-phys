@@ -9,3 +9,7 @@ i have attempted before to live type latex for notetaking before (of course usin
 my typed up lecture notes are pretty much 1:1 to what i've written down, mostly unedited.
 
 expect some silliness and shitposting.
+
+## acknowledgements
+
+Many snippets were adapted from or inspired by <https://github.com/su-ah/mypdfs>.

@@ -1,6 +1,6 @@
 \ProvidesPackage{../../../preamble} % wack fix lmao
 
-\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\familydefault}{\sfdefault} % yummy sans serif
 \usepackage{lmodern}
 
 % Language setting
@@ -28,6 +28,8 @@
 \usepackage[table]{xcolor}
 \usepackage{geometry}
 \usepackage{url}
+
+\usepackage{accents} % also fixes double superscripts
 
 \usepackage{parskip}
 
@@ -68,7 +70,7 @@
 
 \theoremstyle{definition} % bold title, roman body
 \newtheorem{defn}[thm]{Definition}
-\newtheorem{ex}[thm]{Example}
+\newtheorem{ex}{Example}[thm]
 
 \theoremstyle{remark} % italic title, roman body
 \newtheorem*{remark}{Remark}
@@ -84,6 +86,6 @@
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}}
 
-\newcommand{\FF}{\mathbb{F}}
+\newcommand{\FF}{\mathbb{F}} % field
 
 \newcommand{\ps}{\mathcal{P}}
