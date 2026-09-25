@@ -12,4 +12,4 @@ expect some silliness and shitposting.
 
 ## acknowledgements
 
-Many snippets were adapted from or inspired by <https://github.com/su-ah/mypdfs>.
+many snippets were adapted from or inspired by <https://github.com/su-ah/mypdfs>.

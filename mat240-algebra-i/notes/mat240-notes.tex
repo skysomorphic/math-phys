@@ -269,78 +269,105 @@ In that case, we say that
 \subsection{Modular arithmetic}
 \lecdate{Lec 3 09-15 Tuesday}
 
-**(1)** *Def.* Let ${}m\in \mathbb{N}{}$, and ${}a,b \in \mathbb{Z}{}$. We say that ${}a{}$ is congruent to ${} b{}$ mod ${}m{}$ denoted,
-$$
-a \equiv b \mod m
-$$
-or,
-$$
-a \equiv b \quad (m)
-$$
-if ${}m | (a-b){}$.
-*Ex.*
-- ${}11 \equiv 18 \mod 7{}$
-- ${}0 \equiv 7 \mod 7{}$
-*Exercise.* What $m$ makes ${}3 \equiv 45 \mod m{}$ true?
-- ${}m = 1, 2,3,6,7,14,21,42{}$
+\begin{defn}
+    Let ${}m\in \mathbb{N}{}$, and ${}a,b \in \mathbb{Z}{}$. We say that ${}a{}$ is congruent to ${} b{}$ mod ${}m{}$ denoted, \[
+        a \equiv b \mod m \qquad \text{or} \qquad a \equiv b \quad (m),
+    \]
+    if ${}m \mid b-a{}$.
+\end{defn}
+\begin{ex} The following are true:
+    \begin{itemize}
+        \item ${}11 \equiv 18 \mod 7{}$
+        \item ${}0 \equiv 7 \mod 7{}$
+    \end{itemize}
+\end{ex}
+\begin{exercise}
+    What $m$ makes ${}3 \equiv 45 \pmod{m}{}$ true?
+    \begin{itemize}
+        \item ${}m = 1, 2,3,6,7,14,21,42{}$
+    \end{itemize}
+\end{exercise}
 
-**(2)** *Lemma.* Let ${}m\in \mathbb{N}{}$, and ${}a,b \in \mathbb{Z}{}$. Then, ${}a \equiv b \mod m{}$ iff there exists ${}k \in \mathbb{Z}{}$ s.t. ${}a=b+km{}$.
-*Proof.* **FILL IN FROM NOTES, pretty intuitive**
+\begin{lm}\label{lm:1}
+    Let ${}m\in \mathbb{N}{}$, and ${}a,b \in \mathbb{Z}{}$. Then, ${}a \equiv b \mod m{}$ if and only if there exists ${}k \in \mathbb{Z}{}$ s.t. ${}a=b+km{}$.
+\end{lm}
+\begin{pf}
+    FILL IN FROM NOTES, pretty intuitive
+\end{pf}
 
-**(3)** *Thm.* (**Division with remainder**) Let ${}m \in \mathbb{N}{}$. For each ${} a \in \mathbb{Z}{}$, there exists a unique ${}r \in \{ 0,1,\dots,m-1 \}{}$ such that ${}a \equiv r\quad (m){}$.
-*Proof.* We will show that there exist unique integers ${}k{}$ and ${}r{}$ such that ${}a= km +r{}$ by **Lemma 2**, this give ${}a \equiv r \quad (m){}$.
-*Existence.* Consider all the integer multiples of ${}m{}$:
-$$
-m \mathbb{Z} = \{ 0,\pm m,\pm 2m,\pm 3m,\dots \}.
-$$
-These integers occupy the entire real line by the Archimedean property of the real numbers.
-![[09-15 Equivalence relations and modular arithmetic-20260915201512028.webp]]
-The integer ${}a{}$ lies somewhere on the real line, in one of these intervals. Thus, it satisfies
-$$
-km \leq a < (k+1)m
-$$
-for some value ${}k{}$. Subtract ${}km{}$ to obtain
-$$
-0 \leq a-km < m.
-$$
-Let ${}r=a-km{}$. Then ${}r{}$ satisfies the desired condition.
-*Uniqueness.* Suppose that ${}a=r+km=r'+k'm{}$. Then
-$$
-r -r = (k'-k)m.
-$$
-It follows that ${}r-r'{}$ is a multiple of ${}m{}$. But since ${}0 \leq r,r' < m{}$, we have ${}-m < r-r' < m{}$. The only multiple of ${}m{}$ on this interval is ${}0{}.$ So ${}r-r' = 0 \implies r=r'{}$ and hence ${}k=k'{}$.
+\begin{thm}[Division with remainder]
+    Let ${}m \in \mathbb{N}{}$. For each ${} a \in \mathbb{Z}{}$, there exists a unique ${}r \in \{ 0,1,\dots,m-1 \}{}$ such that ${}a \equiv r \pmod{m}{}$.
+\end{thm}
+\begin{pf}
+    We will show that there exist unique integers ${}k{}$ and ${}r{}$ such that ${}a= km +r{}$ by Lemma~\ref{lm:1}, this give ${}a \equiv r \pmod{m}{}$.
 
-As a consequence, we can deduce that
-$$
-\mathbb{Z} = \bigcup_{0}^{m-1} C_{i}
-$$
+    \textit{Existence.} Consider all the integer multiples of ${}m{}$:\[
+        m \mathbb{Z} = \{ 0,\pm m,\pm 2m,\pm 3m,\dots \}.
+    \]
+    These integers occupy the entire real line by the Archimedean property of the real numbers.
+
+    ![[09-15 Equivalence relations and modular arithmetic-20260915201512028.webp]]
+
+    The integer ${}a{}$ lies somewhere on the real line, in one of these intervals. Thus, it satisfies \[
+        km \leq a < (k+1)m
+    \]
+    for some value ${}k{}$. Subtract ${}km{}$ to obtain \[
+        0 \leq a-km < m.
+    \]
+    Let ${}r=a-km{}$. Then ${}r{}$ satisfies the desired condition.
+
+    \textit{Uniqueness.} Suppose that ${}a=r+km=r'+k'm{}$. Then \[
+        r -r = (k'-k)m.
+    \]
+    It follows that ${}r-r'{}$ is a multiple of ${}m{}$. But since ${}0 \leq r,r' < m{}$, we have ${}-m < r-r' < m{}$. The only multiple of ${}m{}$ on this interval is ${}0{}.$ So ${}r-r' = 0 \implies r=r'{}$ and hence ${}k=k'{}$.
+\end{pf}
+
+As a consequence, we can deduce that \[
+    \mathbb{Z} = \bigcup_{0}^{m-1} C_{i}
+\]
 We call ${}\{0, \dots, m-1 \}{}$ the **standard representatives** of their respective **congruence classes** ${}C_{i}{}$ for congruence mod ${}m{}$.
 
-**(4)** *Thm.* (**Addition and multiplication of congruence classes**) If ${}a \equiv b \quad (m){}$ and ${}c \equiv d \quad (m){}$, then
-$$
-a+c\equiv b+d \mod m, \qquad a \cdot c \equiv b \cdot d \mod m.
-$$
-*Proof.* see notes,
+\begin{thm} [Addition and Multiplication of Congruence Classes]
+    If ${}a \equiv b \quad (m){}$ and ${}c \equiv d \pmod{m}{}$, then
+    $$
+    a+c\equiv b+d \pmod{m}, \qquad a \cdot c \equiv b \cdot d \pmod{m}
+    $$
+\end{thm}
+\begin{pf}
+    See pdf.
+\end{pf}
 
-**(5)** *Def.* The **integers modulo $m$ (or mod $m$)**, denoted ${}\mathbb{Z}/m\mathbb{Z}{}$, is the set of congruence classes mod ${}m{}$. By the previous theorem, ${}\mathbb{Z} / m\mathbb{Z}{}$ is equipped with addition and multiplication. In practice, we will denote the congruence classes in ${}\mathbb{Z} / m \mathbb{Z}{}$ to be
-$$
-\mathbb{Z} / m \mathbb{Z} = \{ \overline{0}, \overline{1}, \dots, \overline{m-1}\}.
-$$
-Let ${}m = 4{}$. Consider ${}\mathbb{Z} / 4 \mathbb{Z}{}$:
-$$
-\overline{0} \cdot \overline{2} = \overline{0} \quad
-\overline{1} \cdot \overline{2} = \overline{2} \quad
-\overline{2} \cdot \overline{2} = \overline{0} \quad
-\overline{3} \cdot \overline{2} = \overline{2} \quad
-$$
-${}\overline{2}{}$ does not have a multiplicative inverse!!!! So ${}\mathbb{Z} / 4 \mathbb{Z}{}$ is not a field. Note that however ${}\overline{3}{}$ does have a multiplicative inverse, it is only for (non-unity) divisors of $m$ that lack inverses.
+\begin{defn}
+    The **integers modulo $m$ (or mod $m$)**, denoted ${}\mathbb{Z}/m\mathbb{Z}{}$, is the set of congruence classes mod ${}m{}$. By the previous theorem, ${}\mathbb{Z} / m\mathbb{Z}{}$ is equipped with addition and multiplication. In practice, we will denote the congruence classes in ${}\mathbb{Z} / m \mathbb{Z}{}$ to be \[
+        \mathbb{Z} / m \mathbb{Z} = \{ \overline{0}, \overline{1}, \dots, \overline{m-1}\}.
+    \]
+\end{defn}
 
-**(6)** *Thm.* ${}\mathbb{Z} / m \mathbb{Z}{}$ is a field if and only if ${}m{}$ prime number.
-Assume the field axioms except the existence of multiplicative inverses.
-Assume that if ${}m{}$ is not prime then there exists
+\begin{remark}
+    Let ${}m = 4{}$. Consider ${}\mathbb{Z} / 4 \mathbb{Z}{}$: \[
+        \overline{0} \cdot \overline{2} = \overline{0} \quad
+        \overline{1} \cdot \overline{2} = \overline{2} \quad
+        \overline{2} \cdot \overline{2} = \overline{0} \quad
+        \overline{3} \cdot \overline{2} = \overline{2} \quad
+    \]
+    ${}\overline{2}{}$ does not have a multiplicative inverse!!!! So ${}\mathbb{Z} / 4 \mathbb{Z}{}$ is not a field. Note that however ${}\overline{3}{}$ does have a multiplicative inverse, it is only for (non-unity) divisors of $m$ that lack inverses.
+\end{remark}
+
+\begin{thm}
+    ${}\mathbb{Z} / m \mathbb{Z}{}$ is a field if and only if ${}m{}$ prime number.
+\end{thm}
+\begin{pf}
+    Assume the field axioms except the existence of multiplicative inverses.
+
+    Assume that if ${}m{}$ is not prime then there exists
+
+    FILL FROM PDF
+\end{pf}
 
 \subsection{Finite fields on $\ZZ / m \ZZ$}
 \lecdate{Lec 4 09-17 Thursday}
+
+FILL IN FROM NOTES
 
 Go to tutorial!!! HW1 is due sunday at 8pm. Mathematics SUpport Initiative, see Quercus, math help club.
 
@@ -380,5 +407,150 @@ Check this as an exercise! This is also called Euclid's lemma.
 \section{Vector spaces}
 \subsection{Vector spaces and their properties}
 \lecdate{Lec 5 09-22 Tuesday}
+
+Review of vectors from HS, check notes pdf.
+
+\begin{defn}
+    A vector space over a field $F$ is a set $V$ equipped with two (closed) operations,
+    \begin{itemize}
+        \item $+: V \times V \to V $ (addition) \\ $(x,y) \mapsto x+y$
+        \item $\cdot: F \times V$ (scalar multiplication) \\ $(a,x) \mapsto ax$
+    \end{itemize}
+    and also satisfies the eight following axioms $\forall x,y,z \in V$ and $\forall a,b, \in F$.
+    \begin{itemize}
+        \item[(VS1)] $x+y=y+x$ \hfill ($+$ is commutative)
+        \item[(VS2)] $(x+y)+z = x+(y+z)$ \hfill ($+$ is associative)
+        \item[(VS3)] $\exists 0 \in V$ s.t. $x+0=x$ \hfill ($+$ has an identity)
+        \item[(VS4)] $\forall x \exists y$ s.t. $x+y=0$ \hfill ($+$ has inverses)
+        \item[(VS5)] $1x = x$
+        \item[(VS6)] $a(bx) = (ab)x$
+        \item[(VS7)] $a(x+y) = ax + ay$
+        \item[(VS8)] $(a+b)x = ax + bx$
+    \end{itemize}
+\end{defn}
+\begin{remark}
+    Note that (VS1-4) is equivalent to saying that $(V, +)$ forms an abelian group, and that $F$ is only relevant for the latter four axioms. Also, note that $0 \in V$ and $0 \in F$ is not necessarily exactly the same compounds.
+\end{remark}
+\begin{remark}
+    A vector space \textit{need not} have multiplication defined on vectors!
+\end{remark}
+\begin{ex} Some vector spaces include:
+    \begin{itemize}
+        \item Every field is a vector space over itself. (pretty trivial)
+        \item $F^n = \{ (a_{1},a_{2},\dots,a_{n}) \mid a_{i} \in F \}$ for any field $F$ is a vector space over $F$.
+        \item $\CC = \{ a+bi \mid a,b \in \RR \}$ is a vector space over $\RR$, and also a vector space over $\QQ$!
+        \item Let $k \in  \ZZ_{>0}$. $P_{k}(F) = \{ a_{0} + a_{1}x + \dots + a_{k}x^k \mid a,b \in F \}$, the set of polynomials with degree $k$ and coefficients from $F$, is a vector space over $F$.
+        \item $P(f) = \bigcup_{k \in \ZZ_{>0}} P_{k}(F)$ is a vector space of all polynomials over $F$.
+        \item Let $S$ be a nonempty set, and a $F$ be a field. $\mathcal{F}(S,F)$ is the set of all functions from $S \to F$. $\mathcal{F}$ is a vector space over $F$, with addition and scalar multiplication defined as follows, for $f, g \in \mathcal{F}$, $s \in S$, $a \in F$.
+            \begin{gather*}
+                (f+g)(s) = f(s) \\
+                (af)(s) = a \cdot f(s)
+            \end{gather*}
+    \end{itemize}
+\end{ex}
+
+\begin{thm}[Simple properties of vector spaces]
+    Let $V$ be a vector space over $F$, $v,x,y,z \in V$, and $a \in F$. Then
+    \begin{enumerate}[label=(\roman*)]
+        \item $0 \cdot v = 0$.
+        \item The $0$ vector is unique.
+        \item $a \cdot 0 = 0$.
+        \item $x + z = y + z \implies x=y$.
+        \item $-x$ is defined as $x + (-x) = 0$. It is unique.
+        \item If $a \in F$, then $(-a)b = a(-v) = -(av)$.
+    \end{enumerate}
+\end{thm}
+\begin{pf}
+    pretty simple, do as exercise
+\end{pf}
+
+\begin{defn}
+    matrices fill in from notes
+\end{defn}
+
+\subsection{Subspaces of vector spaces}
+\begin{defn}
+    Let $V$ be a vector space over $F$. $W \subseteq V$ is a \textbf{subspace} of $V$ if it is a vector space equipped with the restriction of operations of $V$.
+\end{defn}
+
+\begin{thm}[VERY IMPORTANT AND USEFUL]\label{thm:subspace}
+    Let $V$ be a vector space over $F$. Then $W \subseteq V$ is a subspace if and only if it satisfies:
+    \begin{enumerate}[label=(\roman*)]
+        \item $W \neq \varnothing$
+        \item $W$ is closed under addition
+        \item $W$ is closed under scalar multiplication
+    \end{enumerate}
+\end{thm}
+\begin{pf}
+    SEE PDF
+\end{pf}
+\begin{ex}
+    Consider the vector space $\RR^3 = \{ (a,b,c) \mid a,b,c \in \RR \}$ over $\RR$.
+    \begin{itemize}
+        \item $\RR^3$ is a subspace of itself. (trivial)
+        \item $W_{1} = \{ (a,b,c) \mid c=0 \}$ is a subspace. ($\cong\RR^2$)
+        \item $W_{2} = \{ (a,b,c) \mid 71a-22b+7c = 0 \}$ is a subspace. ($\cong\RR$)
+        \item $W_{3} = \{ (a,b,c) \mid a+b=-c^{2} \}$ is NOT a subspace. ($v = (-2,-2,-2) \in W_{3}$ but $2v = (-4,-4,-4) \not\in W_{3}$.)
+    \end{itemize}
+\end{ex}
+
+\begin{thm}
+    Let $V$ be a vector space and $W_{1}$ and $W_{2}$ be subspaces of $V$. Then, $W_{1} \cap W_{2}$ is also a subspace.
+\end{thm}
+\begin{pf}
+    We will prove the conditions in Theorem~\ref{thm:subspace}
+    \begin{enumerate}[label=(\roman*)]
+        \item $0 \in W_{1}$ and $0 \in W_{2}$, so $0 \in W_{1} \cap W_{2}$.
+        \item $x, y \in W_{1} \cap W_{2} \implies x+y \in W_{1}$ and $x+y \in W_{2}$ because addition is closed in subspaces, so $x+y \in W_{1} \cap W_{2}$.
+        \item $x \in W_{1} \cap W_{2} \implies cx \in W_{1}$ and $cx \in W_{2}$ because scalar multiplication is closed in subspaces, so $cx \in W_{1} \cap W_{2}$. \qedhere
+    \end{enumerate}
+\end{pf}
+
+\subsection{Linear combination and span}
+\lecdate{Lec 6 09-24 Thursday}
+
+\begin{defn}
+    Let $V$ be a vector space, and $S$ be nonempty subset of $V$. We say $v \in V$ is a \textbf{linear combination} of $s \in S$ if there exists $u_{1}, u_{2}, \dots, u_{n} \in S$ and $a_{1}, a_{2}, \dots, a_{n} \in F$ s.t. \[
+        v = a_{1}u_{1} + a_{2}u_{2} + \dots + a_{n}u_{n}
+    \]
+    We call $a_{i}$ \textbf{coefficients}.
+\end{defn}
+\begin{ex}\label{ex:0lincomb}
+    $0$ is always a linear combination of any set of vectors.
+\end{ex}
+\begin{ex}
+    Consider the vector space of polynomials $P(\QQ)$ over $\QQ$. $3x^{2} + 1$ is a linear combination of $x^{2}$ and $1$, or even $-7x^{2} + 1$ and $4x^{2} + 2$. (The reader may check the latter as an exercise.)
+\end{ex}
+\begin{remark}
+    Many applications of linear algebra have to do with representations of linear combinations, see urban planning example in pdf.
+\end{remark}
+\begin{exercise}
+    Draw the linear combinations of:
+    \begin{enumerate}[label=(\roman*)]
+        \item $(1,1)$ in $\RR^2$
+            INSERT IMAGE
+        \item $(1,0,1)$, $(2,0,2)$, and $(0,0,1)$ in $\RR^3$
+            INSERT IMAGE
+    \end{enumerate}
+\end{exercise}
+
+\begin{defn}
+    Let $S$ be a nonempty subset of vector space $V$. The \textbf{span} of $S$ is the set of linear combinations of $S$, denoted $\linspan(S)$. By definition, $\linspan(\varnothing) =  \{ 0 \}$.
+\end{defn}
+
+\begin{thm}
+    Let $S$ be a subset of a vector space $V$. $\linspan(S) = W$ is a subspace of $V$. Also, $S \subseteq W$. Moreover, any subspace of $V$ that contains $S$, also contains $\linspan(S)$
+\end{thm}
+\begin{pf}
+    Using Theorem~\ref{thm:subspace} we show that $\linspan(S)$ is a subspace by the following:
+    \begin{enumerate}[label=(\roman*)]
+        \item $0 \in \linspan(S)$ (see Example~\ref{ex:0lincomb}) even if $S$ is empty, since by definition $\linspan(\varnothing) = \{ 0 \}$. So, $\linspan(S)$ is not empty.
+        \item $\linspan(S)$ is closed under addition. too lazy to write this out, its intuitive.
+        \item $\linspan(S)$ is closed under scalar multiplication. also too lazy lmao, same logic, just write out the definitions.
+    \end{enumerate}
+    For every $s \in S$, $s$ can be written as a linear combination of itself by $1 \cdot s = s$, so it is in $\linspan(S) = W$, so $S \subseteq W$.
+
+    Finally, we show that every subspace of $V$ that contains $S$ also contains $\linspan(S)$. By definition, subspaces are closed under addition and scalar multiplication, which are exactly the operations that make up linear combinations. So, $\linspan(S)$ must also be in that subspace, as it is exactly the linear combinations of $S$.
+\end{pf}
 
 \end{document}
