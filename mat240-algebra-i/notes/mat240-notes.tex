@@ -535,22 +535,22 @@ Review of vectors from HS, check notes pdf.
 \end{exercise}
 
 \begin{defn}
-    Let $S$ be a nonempty subset of vector space $V$. The \textbf{span} of $S$ is the set of linear combinations of $S$, denoted $\linspan(S)$. By definition, $\linspan(\varnothing) =  \{ 0 \}$.
+    Let $S$ be a nonempty subset of vector space $V$. The \textbf{span} of $S$ is the set of linear combinations of $S$, denoted $\opspan(S)$. By definition, $\opspan(\varnothing) =  \{ 0 \}$.
 \end{defn}
 
 \begin{thm}
-    Let $S$ be a subset of a vector space $V$. $\linspan(S) = W$ is a subspace of $V$. Also, $S \subseteq W$. Moreover, any subspace of $V$ that contains $S$, also contains $\linspan(S)$
+    Let $S$ be a subset of a vector space $V$. $\opspan(S) = W$ is a subspace of $V$. Also, $S \subseteq W$. Moreover, any subspace of $V$ that contains $S$, also contains $\opspan(S)$
 \end{thm}
 \begin{pf}
-    Using Theorem~\ref{thm:subspace} we show that $\linspan(S)$ is a subspace by the following:
+    Using Theorem~\ref{thm:subspace} we show that $\opspan(S)$ is a subspace by the following:
     \begin{enumerate}[label=(\roman*)]
-        \item $0 \in \linspan(S)$ (see Example~\ref{ex:0lincomb}) even if $S$ is empty, since by definition $\linspan(\varnothing) = \{ 0 \}$. So, $\linspan(S)$ is not empty.
-        \item $\linspan(S)$ is closed under addition. too lazy to write this out, its intuitive.
-        \item $\linspan(S)$ is closed under scalar multiplication. also too lazy lmao, same logic, just write out the definitions.
+        \item $0 \in \opspan(S)$ (see Example~\ref{ex:0lincomb}) even if $S$ is empty, since by definition $\opspan(\varnothing) = \{ 0 \}$. So, $\opspan(S)$ is not empty.
+        \item $\opspan(S)$ is closed under addition. too lazy to write this out, its intuitive.
+        \item $\opspan(S)$ is closed under scalar multiplication. also too lazy lmao, same logic, just write out the definitions.
     \end{enumerate}
-    For every $s \in S$, $s$ can be written as a linear combination of itself by $1 \cdot s = s$, so it is in $\linspan(S) = W$, so $S \subseteq W$.
+    For every $s \in S$, $s$ can be written as a linear combination of itself by $1 \cdot s = s$, so it is in $\opspan(S) = W$, so $S \subseteq W$.
 
-    Finally, we show that every subspace of $V$ that contains $S$ also contains $\linspan(S)$. By definition, subspaces are closed under addition and scalar multiplication, which are exactly the operations that make up linear combinations. So, $\linspan(S)$ must also be in that subspace, as it is exactly the linear combinations of $S$.
+    Finally, we show that every subspace of $V$ that contains $S$ also contains $\opspan(S)$. By definition, subspaces are closed under addition and scalar multiplication, which are exactly the operations that make up linear combinations. So, $\opspan(S)$ must also be in that subspace, as it is exactly the linear combinations of $S$.
 \end{pf}
 
 \end{document}
