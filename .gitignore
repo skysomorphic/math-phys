@@ -18,6 +18,7 @@
 
 ## ignore pdfs with course documents
 pset.pdf
+\assignments
 syllabus.pdf
 *.md
 !README.md
